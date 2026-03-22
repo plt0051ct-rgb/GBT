@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Ticaret işletmeleri için kreatif üretim takip tablosu. Kreatiflerinizi planlayın, takip edin ve A/B test sonuçlarını karşılaştırın.">
+    <title>Kreatif Üretim Tablosu — E-Ticaret</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* ============================================
+   Kreatif Üretim Tablosu — CSS
+   Modern Minimalist Dark Theme
+   ============================================ */
+
+:root {
+    /* Colors */
+    --bg-primary: #0f0f14;
+    --bg-secondary: #16161d;
+    --bg-card: rgba(28, 28, 38, 0.7);
+    --bg-card-hover: rgba(38, 38, 52, 0.8);
+    --bg-glass: rgba(255, 255, 255, 0.03);
+
+    --text-primary: #e8e8ed;
+    --text-secondary: #8b8b9e;
+    --text-muted: #5a5a6e;
+
+    --accent-primary: #6c5ce7;
+    --accent-primary-light: #a29bfe;
+    --accent-secondary: #00cec9;
+    --accent-warm: #fd79a8;
+    --accent-warning: #fdcb6e;
+    --accent-success: #00b894;
+    --accent-danger: #e17055;
+
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-focus: rgba(108, 92, 231, 0.5);
+
+    --gradient-primary: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    --gradient-warm: linear-gradient(135deg, #fd79a8, #e17055);
+    --gradient-cool: linear-gradient(135deg, #00cec9, #0984e3);
+    --gradient-gold: linear-gradient(135deg, #fdcb6e, #e17055);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(108, 92, 231, 0.15);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 10% 20%, rgba(108, 92, 231, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(0, 206, 201, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-icon {
+    font-size: 1.4rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.header-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    background: rgba(108, 92, 231, 0.15);
+    color: var(--accent-primary-light);
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 25px rgba(108, 92, 231, 0.45);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent-primary-light);
+    border: 1px solid rgba(108, 92, 231, 0.4);
+}
+
+.btn-outline:hover {
+    background: rgba(108, 92, 231, 0.1);
+    border-color: var(--accent-primary);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-glass);
+    color: var(--text-primary);
+}
+
+.btn-small {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.btn-danger {
+    background: rgba(225, 112, 85, 0.15);
+    color: var(--accent-danger);
+    border: 1px solid rgba(225, 112, 85, 0.2);
+}
+
+.btn-danger:hover {
+    background: rgba(225, 112, 85, 0.25);
+}
+
+/* ============================================
+   SUMMARY CARDS
+   ============================================ */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.card-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.15rem;
+}
+
+.card-total .card-value {
+    color: var(--text-primary);
+}
+
+.card-active .card-value {
+    color: var(--accent-primary-light);
+}
+
+.card-winner .card-value {
+    color: var(--accent-success);
+}
+
+.card-pending .card-value {
+    color: var(--accent-warning);
+}
+
+/* ============================================
+   FILTERS
+   ============================================ */
+.filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem 2rem 1rem;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.filter-group label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.filter-group select,
+.filter-group input[type="text"] {
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.8rem;
+    min-width: 140px;
+    transition: var(--transition);
+    outline: none;
+}
+
+.filter-group select:focus,
+.filter-group input[type="text"]:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.search-group input {
+    min-width: 180px !important;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+.table-section {
+    padding: 0 2rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.table-wrapper {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.creative-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.creative-table thead {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.creative-table th {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.creative-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.creative-table th.sortable:hover {
+    color: var(--accent-primary-light);
+}
+
+.sort-arrow {
+    font-size: 0.7rem;
+    opacity: 0.4;
+}
+
+.creative-table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.creative-table tbody tr {
+    transition: var(--transition);
+}
+
+.creative-table tbody tr:hover {
+    background: rgba(108, 92, 231, 0.04);
+}
+
+.creative-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-fikir {
+    background: rgba(253, 203, 110, 0.12);
+    color: #fdcb6e;
+    border: 1px solid rgba(253, 203, 110, 0.2);
+}
+
+.status-tasarim {
+    background: rgba(108, 92, 231, 0.12);
+    color: #a29bfe;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.status-inceleme {
+    background: rgba(9, 132, 227, 0.12);
+    color: #74b9ff;
+    border: 1px solid rgba(9, 132, 227, 0.2);
+}
+
+.status-yayinda {
+    background: rgba(0, 184, 148, 0.12);
+    color: #55efc4;
+    border: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.status-tamamlandi {
+    background: rgba(0, 206, 201, 0.12);
+    color: #81ecec;
+    border: 1px solid rgba(0, 206, 201, 0.2);
+}
+
+/* Result Badge */
+.result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.result-kazanan {
+    background: rgba(0, 184, 148, 0.15);
+    color: #00b894;
+    border: 1px solid rgba(0, 184, 148, 0.25);
+}
+
+.result-kaybeden {
+    background: rgba(225, 112, 85, 0.12);
+    color: #e17055;
+    border: 1px solid rgba(225, 112, 85, 0.2);
+}
+
+.result-test {
+    background: rgba(108, 92, 231, 0.12);
+    color: #a29bfe;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.result-belirsiz {
+    background: rgba(139, 139, 158, 0.1);
+    color: #8b8b9e;
+    border: 1px solid rgba(139, 139, 158, 0.15);
+}
+
+/* Metrics */
+.metrics-cell {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.metric-tag {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.metric-tag strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.action-btn {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+}
+
+.action-btn.danger:hover {
+    border-color: var(--accent-danger);
+    color: var(--accent-danger);
+    background: rgba(225, 112, 85, 0.08);
+}
+
+/* Status Select Dropdown */
+.status-select {
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%238b8b9e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 1.6rem;
+}
+
+.status-select:hover {
+    filter: brightness(1.2);
+}
+
+.status-select.status-fikir {
+    background-color: rgba(253, 203, 110, 0.12);
+    color: #fdcb6e;
+    border: 1px solid rgba(253, 203, 110, 0.2);
+}
+
+.status-select.status-tasarim {
+    background-color: rgba(108, 92, 231, 0.12);
+    color: #a29bfe;
+    border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.status-select.status-inceleme {
+    background-color: rgba(9, 132, 227, 0.12);
+    color: #74b9ff;
+    border: 1px solid rgba(9, 132, 227, 0.2);
+}
+
+.status-select.status-yayinda {
+    background-color: rgba(0, 184, 148, 0.12);
+    color: #55efc4;
+    border: 1px solid rgba(0, 184, 148, 0.2);
+}
+
+.status-select.status-tamamlandi {
+    background-color: rgba(0, 206, 201, 0.12);
+    color: #81ecec;
+    border: 1px solid rgba(0, 206, 201, 0.2);
+}
+
+.status-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+.timeline-section {
+    padding: 0 2rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.timeline {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.timeline::-webkit-scrollbar {
+    height: 4px;
+}
+
+.timeline::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.timeline-item {
+    min-width: 200px;
+    flex-shrink: 0;
+    padding: 1rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+}
+
+.timeline-item.tl-overdue::before {
+    background: var(--accent-danger);
+}
+
+.timeline-item.tl-today::before {
+    background: var(--accent-warning);
+}
+
+.timeline-item.tl-soon::before {
+    background: var(--accent-primary);
+}
+
+.timeline-item.tl-later::before {
+    background: var(--accent-secondary);
+}
+
+.timeline-item:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-date {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.timeline-meta {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.timeline-empty {
+    padding: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 620px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-notes {
+    max-width: 480px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: rgba(225, 112, 85, 0.1);
+    border-color: var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+/* Form */
+#creativeForm {
+    padding: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row-triple {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.55rem 0.75rem;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-primary-light);
+    margin-bottom: 0.6rem;
+    margin-top: 0.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Notes Modal */
+.notes-list {
+    padding: 1rem 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.note-item {
+    padding: 0.8rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.6rem;
+    animation: fadeInUp 0.2s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.note-stage {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-primary-light);
+}
+
+.note-date {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.note-text {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.notes-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.notes-add {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.notes-add input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.82rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.notes-add input:focus {
+    border-color: var(--border-focus);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+
+    .filters-bar {
+        padding: 0.75rem 1rem;
+    }
+
+    .filter-group select,
+    .filter-group input[type="text"] {
+        min-width: 110px;
+    }
+
+    .table-section {
+        padding: 0 1rem 1rem;
+    }
+
+    .creative-table {
+        font-size: 0.78rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row-triple {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .timeline-section {
+        padding: 0 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .summary-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header-badge {
+        display: none;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .creative-table {
+        min-width: 700px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    z-index: 2000;
+    animation: toastIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toast.toast-out {
+    animation: toastOut 0.3s ease forwards;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-left">
+            <div class="logo">
+                <span class="logo-icon">◆</span>
+                <h1>Kreatif Tablosu</h1>
+            </div>
+            <span class="header-badge">E-Ticaret</span>
+        </div>
+        <div class="header-right">
+            <button class="btn btn-primary" id="btnNewCreative" onclick="openModal()">
+                <span class="btn-icon">+</span> Yeni Kreatif
+            </button>
+        </div>
+    </header>
+
+    <!-- Summary Cards -->
+    <section class="summary-cards" id="summaryCards">
+        <div class="card card-total">
+            <div class="card-icon">📊</div>
+            <div class="card-info">
+                <span class="card-value" id="totalCount">0</span>
+                <span class="card-label">Toplam Kreatif</span>
+            </div>
+        </div>
+        <div class="card card-active">
+            <div class="card-icon">🚀</div>
+            <div class="card-info">
+                <span class="card-value" id="activeCount">0</span>
+                <span class="card-label">Aktif</span>
+            </div>
+        </div>
+        <div class="card card-winner">
+            <div class="card-icon">🏆</div>
+            <div class="card-info">
+                <span class="card-value" id="winnerCount">0</span>
+                <span class="card-label">Kazanan</span>
+            </div>
+        </div>
+        <div class="card card-pending">
+            <div class="card-icon">⏳</div>
+            <div class="card-info">
+                <span class="card-value" id="pendingCount">0</span>
+                <span class="card-label">Bekleyen</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-bar">
+        <div class="filter-group">
+            <label for="filterPlatform">Platform</label>
+            <select id="filterPlatform" onchange="renderCreatives()">
+                <option value="">Tümü</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="TikTok">TikTok</option>
+                <option value="YouTube">YouTube</option>
+                <option value="Diğer">Diğer</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterStatus">Durum</label>
+            <select id="filterStatus" onchange="renderCreatives()">
+                <option value="">Tümü</option>
+                <option value="fikir">💡 Fikir</option>
+                <option value="tasarim">🎨 Tasarım</option>
+                <option value="inceleme">🔍 İnceleme</option>
+                <option value="yayinda">📡 Yayında</option>
+                <option value="tamamlandi">✅ Tamamlandı</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterType">Tür</label>
+            <select id="filterType" onchange="renderCreatives()">
+                <option value="">Tümü</option>
+                <option value="Görsel">Görsel</option>
+                <option value="Video">Video</option>
+                <option value="Carousel">Carousel</option>
+                <option value="Story">Story</option>
+                <option value="Reels">Reels</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="filterResult">Sonuç</label>
+            <select id="filterResult" onchange="renderCreatives()">
+                <option value="">Tümü</option>
+                <option value="kazanan">🏆 Kazanan</option>
+                <option value="kaybeden">❌ Kaybeden</option>
+                <option value="test">🧪 Test Ediliyor</option>
+                <option value="belirsiz">⏳ Belirsiz</option>
+            </select>
+        </div>
+        <div class="filter-group search-group">
+            <label for="filterSearch">Ara</label>
+            <input type="text" id="filterSearch" placeholder="Kreatif adı..." oninput="renderCreatives()">
+        </div>
+    </section>
+
+    <!-- Creative Table -->
+    <section class="table-section">
+        <div class="table-wrapper">
+            <table class="creative-table" id="creativeTable">
+                <thead>
+                    <tr>
+                        <th class="sortable" onclick="sortTable('name')">Kreatif Adı <span class="sort-arrow">↕</span></th>
+                        <th>Platform</th>
+                        <th>Tür</th>
+                        <th class="sortable" onclick="sortTable('status')">Durum <span class="sort-arrow">↕</span></th>
+                        <th class="sortable" onclick="sortTable('date')">Hedef Tarih <span class="sort-arrow">↕</span></th>
+                        <th>Sorumlu</th>
+                        <th>Sonuç</th>
+                        <th>Metrikler</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="creativeTableBody">
+                    <!-- JS ile doldurulacak -->
+                </tbody>
+            </table>
+            <div class="empty-state" id="emptyState" style="display:none;">
+                <div class="empty-icon">📋</div>
+                <p>Henüz kreatif eklenmedi.</p>
+                <button class="btn btn-outline" onclick="openModal()">İlk Kreatifi Ekle</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timelineSection">
+        <h2 class="section-title">📅 Yaklaşan Teslim Tarihleri</h2>
+        <div class="timeline" id="timeline">
+            <!-- JS ile doldurulacak -->
+        </div>
+    </section>
+
+    <!-- Modal: New/Edit Creative -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 id="modalTitle">Yeni Kreatif Ekle</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="creativeForm" onsubmit="saveCreative(event)">
+                <input type="hidden" id="editId" value="">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="creativeName">Kreatif Adı *</label>
+                        <input type="text" id="creativeName" required placeholder="Ör: Yaz Kampanyası Banner">
+                    </div>
+                    <div class="form-group">
+                        <label for="creativeResponsible">Sorumlu</label>
+                        <input type="text" id="creativeResponsible" placeholder="Ör: Ahmet">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="creativePlatform">Platform *</label>
+                        <select id="creativePlatform" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Google Ads">Google Ads</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="Diğer">Diğer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="creativeType">Tür *</label>
+                        <select id="creativeType" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Görsel">Görsel</option>
+                            <option value="Video">Video</option>
+                            <option value="Carousel">Carousel</option>
+                            <option value="Story">Story</option>
+                            <option value="Reels">Reels</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="creativeDate">Hedef Tarih *</label>
+                        <input type="date" id="creativeDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="creativeStatus">Durum</label>
+                        <select id="creativeStatus">
+                            <option value="fikir">💡 Fikir</option>
+                            <option value="tasarim">🎨 Tasarım</option>
+                            <option value="inceleme">🔍 İnceleme</option>
+                            <option value="yayinda">📡 Yayında</option>
+                            <option value="tamamlandi">✅ Tamamlandı</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- A/B Test Metrics -->
+                <div class="form-section-title">A/B Test Metrikleri (opsiyonel)</div>
+                <div class="form-row form-row-triple">
+                    <div class="form-group">
+                        <label for="metricCTR">CTR (%)</label>
+                        <input type="number" id="metricCTR" step="0.01" min="0" placeholder="Ör: 3.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="metricROAS">ROAS</label>
+                        <input type="number" id="metricROAS" step="0.01" min="0" placeholder="Ör: 4.2">
+                    </div>
+                    <div class="form-group">
+                        <label for="metricConversion">Dönüşüm (%)</label>
+                        <input type="number" id="metricConversion" step="0.01" min="0" placeholder="Ör: 2.1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="creativeResult">A/B Test Sonucu</label>
+                        <select id="creativeResult">
+                            <option value="belirsiz">⏳ Belirsiz</option>
+                            <option value="test">🧪 Test Ediliyor</option>
+                            <option value="kazanan">🏆 Kazanan</option>
+                            <option value="kaybeden">❌ Kaybeden</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="creativeAbTestGroup">A/B Grup Adı</label>
+                        <input type="text" id="creativeAbTestGroup" placeholder="Ör: Kampanya-A">
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="form-group">
+                    <label for="creativeNote">Not Ekle</label>
+                    <textarea id="creativeNote" rows="3" placeholder="Bu aşamayla ilgili notlarınız..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost" onclick="closeModal()">İptal</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Notes History -->
+    <div class="modal-overlay" id="notesModalOverlay" onclick="closeNotesModal(event)">
+        <div class="modal modal-notes" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>📝 Not Geçmişi</h2>
+                <button class="modal-close" onclick="closeNotesModal()">&times;</button>
+            </div>
+            <div class="notes-list" id="notesList">
+                <!-- JS ile doldurulacak -->
+            </div>
+            <div class="notes-add">
+                <input type="text" id="quickNote" placeholder="Hızlı not ekle..." onkeydown="if(event.key==='Enter')addQuickNote()">
+                <button class="btn btn-small btn-primary" onclick="addQuickNote()">Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+/* ============================================
+   Kreatif Üretim Tablosu — JavaScript
+   ============================================ */
+
+// ---- Data Layer ----
+const STORAGE_KEY = 'kreatif_tablosu_data';
+
+const STATUS_MAP = {
+    fikir: { label: '💡 Fikir', next: 'tasarim' },
+    tasarim: { label: '🎨 Tasarım', next: 'inceleme' },
+    inceleme: { label: '🔍 İnceleme', next: 'yayinda' },
+    yayinda: { label: '📡 Yayında', next: 'tamamlandi' },
+    tamamlandi: { label: '✅ Tamamlandı', next: null },
+};
+
+const RESULT_MAP = {
+    kazanan: { label: '🏆 Kazanan', class: 'result-kazanan' },
+    kaybeden: { label: '❌ Kaybeden', class: 'result-kaybeden' },
+    test: { label: '🧪 Test Ediliyor', class: 'result-test' },
+    belirsiz: { label: '⏳ Belirsiz', class: 'result-belirsiz' },
+};
+
+let creatives = [];
+let sortField = 'date';
+let sortDir = 'asc';
+let currentNotesId = null;
+
+// ---- Helpers ----
+function generateId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+}
+
+function loadData() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        creatives = raw ? JSON.parse(raw) : [];
+    } catch {
+        creatives = [];
+    }
+}
+
+function saveData() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(creatives));
+}
+
+function formatDate(dateStr) {
+    if (!dateStr) return '—';
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function formatDateTime(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' }) +
+        ' ' + d.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+}
+
+function daysUntil(dateStr) {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const target = new Date(dateStr);
+    target.setHours(0, 0, 0, 0);
+    return Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+}
+
+function showToast(message, icon = '✓') {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<span>${icon}</span> ${message}`;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('toast-out');
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
+}
+
+// ---- Rendering ----
+function updateSummary() {
+    document.getElementById('totalCount').textContent = creatives.length;
+    document.getElementById('activeCount').textContent =
+        creatives.filter(c => ['tasarim', 'inceleme', 'yayinda'].includes(c.status)).length;
+    document.getElementById('winnerCount').textContent =
+        creatives.filter(c => c.result === 'kazanan').length;
+    document.getElementById('pendingCount').textContent =
+        creatives.filter(c => c.status === 'fikir').length;
+}
+
+function getFilteredCreatives() {
+    const platform = document.getElementById('filterPlatform').value;
+    const status = document.getElementById('filterStatus').value;
+    const type = document.getElementById('filterType').value;
+    const result = document.getElementById('filterResult').value;
+    const search = document.getElementById('filterSearch').value.toLowerCase().trim();
+
+    let filtered = [...creatives];
+    if (platform) filtered = filtered.filter(c => c.platform === platform);
+    if (status) filtered = filtered.filter(c => c.status === status);
+    if (type) filtered = filtered.filter(c => c.type === type);
+    if (result) filtered = filtered.filter(c => c.result === result);
+    if (search) filtered = filtered.filter(c =>
+        c.name.toLowerCase().includes(search) ||
+        (c.responsible && c.responsible.toLowerCase().includes(search))
+    );
+
+    // Sort
+    filtered.sort((a, b) => {
+        let valA, valB;
+        if (sortField === 'name') {
+            valA = a.name.toLowerCase();
+            valB = b.name.toLowerCase();
+        } else if (sortField === 'status') {
+            const order = ['fikir', 'tasarim', 'inceleme', 'yayinda', 'tamamlandi'];
+            valA = order.indexOf(a.status);
+            valB = order.indexOf(b.status);
+        } else {
+            valA = a.targetDate || '';
+            valB = b.targetDate || '';
+        }
+        if (valA < valB) return sortDir === 'asc' ? -1 : 1;
+        if (valA > valB) return sortDir === 'asc' ? 1 : -1;
+        return 0;
+    });
+
+    return filtered;
+}
+
+function renderCreatives() {
+    const filtered = getFilteredCreatives();
+    const tbody = document.getElementById('creativeTableBody');
+    const emptyState = document.getElementById('emptyState');
+
+    if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+        document.querySelector('.creative-table thead').style.display = creatives.length === 0 ? 'none' : '';
+    } else {
+        emptyState.style.display = 'none';
+        document.querySelector('.creative-table thead').style.display = '';
+        tbody.innerHTML = filtered.map(c => renderRow(c)).join('');
+    }
+
+    updateSummary();
+    renderTimeline();
+}
+
+function renderRow(c) {
+    const statusInfo = STATUS_MAP[c.status];
+    const resultInfo = RESULT_MAP[c.result] || RESULT_MAP.belirsiz;
+
+    // Build status dropdown for bidirectional changes
+    const statusOptions = Object.entries(STATUS_MAP)
+        .map(([key, val]) => `<option value="${key}" ${key === c.status ? 'selected' : ''}>${val.label}</option>`)
+        .join('');
+    const statusSelect = `<select class="status-select status-${c.status}" onchange="changeStatus('${c.id}', this.value)">${statusOptions}</select>`;
+
+    const metricsHtml = buildMetricsHtml(c);
+
+    return `
+        <tr>
+            <td><strong>${escapeHtml(c.name)}</strong></td>
+            <td>${escapeHtml(c.platform)}</td>
+            <td>${escapeHtml(c.type)}</td>
+            <td>${statusSelect}</td>
+            <td>${formatDate(c.targetDate)}</td>
+            <td>${escapeHtml(c.responsible || '—')}</td>
+            <td><span class="result-badge ${resultInfo.class}">${resultInfo.label}</span></td>
+            <td>${metricsHtml}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="openNotesModal('${c.id}')" title="Notlar">📝</button>
+                    <button class="action-btn" onclick="editCreative('${c.id}')" title="Düzenle">✏️</button>
+                    <button class="action-btn danger" onclick="deleteCreative('${c.id}')" title="Sil">🗑️</button>
+                </div>
+            </td>
+        </tr>
+    `;
+}
+
+function buildMetricsHtml(c) {
+    const parts = [];
+    if (c.ctr != null && c.ctr !== '') parts.push(`<span class="metric-tag">CTR <strong>${c.ctr}%</strong></span>`);
+    if (c.roas != null && c.roas !== '') parts.push(`<span class="metric-tag">ROAS <strong>${c.roas}</strong></span>`);
+    if (c.conversion != null && c.conversion !== '') parts.push(`<span class="metric-tag">CVR <strong>${c.conversion}%</strong></span>`);
+    if (c.abTestGroup) parts.push(`<span class="metric-tag">Grup: <strong>${escapeHtml(c.abTestGroup)}</strong></span>`);
+    return parts.length > 0
+        ? `<div class="metrics-cell">${parts.join('')}</div>`
+        : '<span style="color:var(--text-muted)">—</span>';
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// ---- Timeline ----
+function renderTimeline() {
+    const container = document.getElementById('timeline');
+    const upcoming = creatives
+        .filter(c => c.status !== 'tamamlandi' && c.targetDate)
+        .sort((a, b) => a.targetDate.localeCompare(b.targetDate))
+        .slice(0, 10);
+
+    if (upcoming.length === 0) {
+        container.innerHTML = '<div class="timeline-empty">Yaklaşan teslim tarihi yok.</div>';
+        return;
+    }
+
+    container.innerHTML = upcoming.map(c => {
+        const days = daysUntil(c.targetDate);
+        let cls = 'tl-later';
+        let label = `${days} gün sonra`;
+        if (days < 0) { cls = 'tl-overdue'; label = `${Math.abs(days)} gün gecikti`; }
+        else if (days === 0) { cls = 'tl-today'; label = 'Bugün'; }
+        else if (days <= 3) { cls = 'tl-soon'; label = `${days} gün kaldı`; }
+
+        return `
+            <div class="timeline-item ${cls}">
+                <div class="timeline-date">${formatDate(c.targetDate)}</div>
+                <div class="timeline-name">${escapeHtml(c.name)}</div>
+                <div class="timeline-meta">${escapeHtml(c.platform)} · ${label}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+// ---- Sorting ----
+function sortTable(field) {
+    if (sortField === field) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+        sortField = field;
+        sortDir = 'asc';
+    }
+    renderCreatives();
+}
+
+// ---- Modal (New / Edit) ----
+function openModal(id) {
+    const overlay = document.getElementById('modalOverlay');
+    const form = document.getElementById('creativeForm');
+    form.reset();
+    document.getElementById('editId').value = '';
+    document.getElementById('modalTitle').textContent = 'Yeni Kreatif Ekle';
+
+    if (id) {
+        const c = creatives.find(x => x.id === id);
+        if (!c) return;
+        document.getElementById('modalTitle').textContent = 'Kreatif Düzenle';
+        document.getElementById('editId').value = c.id;
+        document.getElementById('creativeName').value = c.name;
+        document.getElementById('creativeResponsible').value = c.responsible || '';
+        document.getElementById('creativePlatform').value = c.platform;
+        document.getElementById('creativeType').value = c.type;
+        document.getElementById('creativeDate').value = c.targetDate;
+        document.getElementById('creativeStatus').value = c.status;
+        document.getElementById('metricCTR').value = c.ctr ?? '';
+        document.getElementById('metricROAS').value = c.roas ?? '';
+        document.getElementById('metricConversion').value = c.conversion ?? '';
+        document.getElementById('creativeResult').value = c.result || 'belirsiz';
+        document.getElementById('creativeAbTestGroup').value = c.abTestGroup || '';
+    }
+
+    overlay.classList.add('active');
+    setTimeout(() => document.getElementById('creativeName').focus(), 200);
+}
+
+function closeModal(e) {
+    if (e && e.target !== document.getElementById('modalOverlay')) return;
+    document.getElementById('modalOverlay').classList.remove('active');
+}
+
+function saveCreative(e) {
+    e.preventDefault();
+    const id = document.getElementById('editId').value;
+    const noteText = document.getElementById('creativeNote').value.trim();
+    const status = document.getElementById('creativeStatus').value;
+
+    const data = {
+        name: document.getElementById('creativeName').value.trim(),
+        responsible: document.getElementById('creativeResponsible').value.trim(),
+        platform: document.getElementById('creativePlatform').value,
+        type: document.getElementById('creativeType').value,
+        targetDate: document.getElementById('creativeDate').value,
+        status: status,
+        ctr: document.getElementById('metricCTR').value || null,
+        roas: document.getElementById('metricROAS').value || null,
+        conversion: document.getElementById('metricConversion').value || null,
+        result: document.getElementById('creativeResult').value,
+        abTestGroup: document.getElementById('creativeAbTestGroup').value.trim(),
+    };
+
+    if (id) {
+        // Update
+        const idx = creatives.findIndex(c => c.id === id);
+        if (idx === -1) return;
+        const existing = creatives[idx];
+        Object.assign(existing, data);
+        existing.updatedAt = new Date().toISOString();
+        if (noteText) {
+            existing.notes = existing.notes || [];
+            existing.notes.push({
+                text: noteText,
+                stage: STATUS_MAP[status].label,
+                date: new Date().toISOString(),
+            });
+        }
+        showToast('Kreatif güncellendi', '✏️');
+    } else {
+        // Create
+        const newCreative = {
+            id: generateId(),
+            ...data,
+            notes: [],
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+        };
+        if (noteText) {
+            newCreative.notes.push({
+                text: noteText,
+                stage: STATUS_MAP[status].label,
+                date: new Date().toISOString(),
+            });
+        }
+        creatives.push(newCreative);
+        showToast('Yeni kreatif eklendi', '✓');
+    }
+
+    saveData();
+    renderCreatives();
+    closeModal();
+}
+
+function editCreative(id) {
+    openModal(id);
+}
+
+function deleteCreative(id) {
+    if (!confirm('Bu kreatifi silmek istediğinize emin misiniz?')) return;
+    creatives = creatives.filter(c => c.id !== id);
+    saveData();
+    renderCreatives();
+    showToast('Kreatif silindi', '🗑️');
+}
+
+function changeStatus(id, newStatus) {
+    const c = creatives.find(x => x.id === id);
+    if (!c || c.status === newStatus) return;
+
+    const prevLabel = STATUS_MAP[c.status].label;
+    const newLabel = STATUS_MAP[newStatus].label;
+    c.status = newStatus;
+    c.updatedAt = new Date().toISOString();
+    c.notes = c.notes || [];
+    c.notes.push({
+        text: `Durum değiştirildi: ${prevLabel} → ${newLabel}`,
+        stage: newLabel,
+        date: new Date().toISOString(),
+    });
+
+    saveData();
+    renderCreatives();
+    showToast(`Durum: ${newLabel}`, '🔄');
+}
+
+// ---- Notes Modal ----
+function openNotesModal(id) {
+    currentNotesId = id;
+    const c = creatives.find(x => x.id === id);
+    if (!c) return;
+
+    const list = document.getElementById('notesList');
+    const notes = c.notes || [];
+
+    if (notes.length === 0) {
+        list.innerHTML = '<div class="notes-empty">Henüz not eklenmedi.</div>';
+    } else {
+        list.innerHTML = notes
+            .slice()
+            .reverse()
+            .map(n => `
+                <div class="note-item">
+                    <div class="note-header">
+                        <span class="note-stage">${n.stage}</span>
+                        <span class="note-date">${formatDateTime(n.date)}</span>
+                    </div>
+                    <div class="note-text">${escapeHtml(n.text)}</div>
+                </div>
+            `).join('');
+    }
+
+    document.getElementById('quickNote').value = '';
+    document.getElementById('notesModalOverlay').classList.add('active');
+}
+
+function closeNotesModal(e) {
+    if (e && e.target !== document.getElementById('notesModalOverlay')) return;
+    document.getElementById('notesModalOverlay').classList.remove('active');
+    currentNotesId = null;
+}
+
+function addQuickNote() {
+    if (!currentNotesId) return;
+    const input = document.getElementById('quickNote');
+    const text = input.value.trim();
+    if (!text) return;
+
+    const c = creatives.find(x => x.id === currentNotesId);
+    if (!c) return;
+
+    c.notes = c.notes || [];
+    c.notes.push({
+        text: text,
+        stage: STATUS_MAP[c.status].label,
+        date: new Date().toISOString(),
+    });
+    c.updatedAt = new Date().toISOString();
+
+    saveData();
+    openNotesModal(currentNotesId);
+    showToast('Not eklendi', '📝');
+}
+
+// ---- Demo Data ----
+function seedDemoData() {
+    if (creatives.length > 0) return;
+
+    const today = new Date();
+    const addDays = (d, n) => {
+        const r = new Date(d);
+        r.setDate(r.getDate() + n);
+        return r.toISOString().split('T')[0];
+    };
+
+    creatives = [
+        {
+            id: generateId(),
+            name: 'Yaz İndirimi Banner Seti',
+            platform: 'Instagram',
+            type: 'Carousel',
+            status: 'yayinda',
+            targetDate: addDays(today, -2),
+            responsible: 'Ayşe',
+            ctr: '4.2',
+            roas: '5.8',
+            conversion: '3.1',
+            result: 'kazanan',
+            abTestGroup: 'Yaz-A',
+            notes: [
+                { text: 'Fikir aşamasında 3 farklı konsept belirlendi.', stage: '💡 Fikir', date: addDays(today, -14) + 'T10:00:00Z' },
+                { text: 'Tasarım onayı alındı, çekim planı hazır.', stage: '🎨 Tasarım', date: addDays(today, -10) + 'T14:30:00Z' },
+                { text: 'A/B test başlatıldı, 48 saat veri toplanacak.', stage: '📡 Yayında', date: addDays(today, -2) + 'T09:00:00Z' },
+            ],
+            createdAt: addDays(today, -14) + 'T10:00:00Z',
+            updatedAt: addDays(today, -1) + 'T16:00:00Z',
+        },
+        {
+            id: generateId(),
+            name: 'Yaz İndirimi Video',
+            platform: 'Instagram',
+            type: 'Reels',
+            status: 'yayinda',
+            targetDate: addDays(today, -2),
+            responsible: 'Mehmet',
+            ctr: '2.8',
+            roas: '3.2',
+            conversion: '1.9',
+            result: 'kaybeden',
+            abTestGroup: 'Yaz-A',
+            notes: [
+                { text: 'Reel formatı optimizasyonu yapıldı.', stage: '🎨 Tasarım', date: addDays(today, -8) + 'T11:00:00Z' },
+                { text: 'CTR beklenenin altında, carousel versiyonu kazandı.', stage: '📡 Yayında', date: addDays(today, -1) + 'T15:00:00Z' },
+            ],
+            createdAt: addDays(today, -12) + 'T10:00:00Z',
+            updatedAt: addDays(today, -1) + 'T15:00:00Z',
+        },
+        {
+            id: generateId(),
+            name: 'Sonbahar Koleksiyonu Tanıtım',
+            platform: 'Facebook',
+            type: 'Video',
+            status: 'tasarim',
+            targetDate: addDays(today, 5),
+            responsible: 'Zeynep',
+            ctr: null,
+            roas: null,
+            conversion: null,
+            result: 'belirsiz',
+            abTestGroup: '',
+            notes: [
+                { text: 'Moodboard hazırlandı, onay bekleniyor.', stage: '🎨 Tasarım', date: addDays(today, -1) + 'T13:00:00Z' },
+            ],
+            createdAt: addDays(today, -5) + 'T10:00:00Z',
+            updatedAt: addDays(today, -1) + 'T13:00:00Z',
+        },
+        {
+            id: generateId(),
+            name: 'Google Arama Reklam Görseli',
+            platform: 'Google Ads',
+            type: 'Görsel',
+            status: 'inceleme',
+            targetDate: addDays(today, 2),
+            responsible: 'Ali',
+            ctr: null,
+            roas: null,
+            conversion: null,
+            result: 'test',
+            abTestGroup: 'Google-Q3',
+            notes: [
+                { text: '3 farklı başlık varyasyonu hazırlandı.', stage: '🎨 Tasarım', date: addDays(today, -3) + 'T09:00:00Z' },
+                { text: 'Metin incelemesi devam ediyor.', stage: '🔍 İnceleme', date: addDays(today, 0) + 'T11:00:00Z' },
+            ],
+            createdAt: addDays(today, -7) + 'T10:00:00Z',
+            updatedAt: addDays(today, 0) + 'T11:00:00Z',
+        },
+        {
+            id: generateId(),
+            name: 'TikTok Ürün Unboxing',
+            platform: 'TikTok',
+            type: 'Video',
+            status: 'fikir',
+            targetDate: addDays(today, 10),
+            responsible: 'Can',
+            ctr: null,
+            roas: null,
+            conversion: null,
+            result: 'belirsiz',
+            abTestGroup: '',
+            notes: [
+                { text: 'Influencer ile görüşme ayarlandı.', stage: '💡 Fikir', date: addDays(today, 0) + 'T15:00:00Z' },
+            ],
+            createdAt: addDays(today, 0) + 'T15:00:00Z',
+            updatedAt: addDays(today, 0) + 'T15:00:00Z',
+        },
+        {
+            id: generateId(),
+            name: 'Kış Kampanyası Story',
+            platform: 'Instagram',
+            type: 'Story',
+            status: 'tamamlandi',
+            targetDate: addDays(today, -20),
+            responsible: 'Ayşe',
+            ctr: '5.1',
+            roas: '7.3',
+            conversion: '4.2',
+            result: 'kazanan',
+            abTestGroup: 'Kış-B',
+            notes: [
+                { text: 'Kampanya başarılı sonuçlandı, ROAS hedefin üzerinde.', stage: '✅ Tamamlandı', date: addDays(today, -15) + 'T10:00:00Z' },
+            ],
+            createdAt: addDays(today, -30) + 'T10:00:00Z',
+            updatedAt: addDays(today, -15) + 'T10:00:00Z',
+        },
+    ];
+
+    saveData();
+}
+
+// ---- Init ----
+document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    seedDemoData();
+    renderCreatives();
+});
+
+// Close modals on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const mainModal = document.getElementById('modalOverlay');
+        const notesModal = document.getElementById('notesModalOverlay');
+        if (notesModal.classList.contains('active')) {
+            closeNotesModal();
+        } else if (mainModal.classList.contains('active')) {
+            closeModal();
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
